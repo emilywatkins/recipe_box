@@ -1,1 +1,41 @@
-<h2><%= @recipe.name %></h2>
+<h2>recipe: <%= @recipe.name %></h2>
+
+<h4>instructions: <%= @recipe.instructions %></h4>
+
+<h4>ingredients: </h4>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li> <%= ingredient.name %> </li>
+  <% end %>
+</ul>
+
+<h4>tags: </h4>
+<ul>
+  <% @recipe.tags.each do |tag| %>
+    <li> <%= tag.description %> </li>
+  <% end %>
+</ul>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <label for="instruction">Instructions:</label>
+  <input id="instruction" name="instruction" type="text">
+
+  <button type="submit">Add instructions</button>
+</form>
+
+<form action="/recipes/<%= @recipe.id %>/ingredients" method="post">
+  <label for="name">Ingredients:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add ingredients</button>
+</form>
+
+<form action="/recipes/<%= @recipe.id %>/tags" method="post">
+  <label for="description">Tag:</label>
+  <input id="description" name="description" type="text">
+
+  <button type="submit">Add a tag</button>
+</form>
+
+
+<a href="/">Return home</a>

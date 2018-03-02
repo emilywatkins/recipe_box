@@ -1,0 +1,9 @@
+<h2>tag manager</h2>
+
+<p>view all tags below</p>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li> <%= tag.description %> </li>
+  <% end %>
+</ul>

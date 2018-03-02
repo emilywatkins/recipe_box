@@ -17,4 +17,17 @@
   <button type="submit">Add recipe</button>
 </form>
 
-<a href="/recipes">View recipes</a>
+<p>search recipes by ingredient</p>
+<form action="/recipes" method="get">
+  <label for="ingredient_id">Select an ingredient</label>
+  <select id='ingredient_id' name='ingredient_id' type='text'>
+    <% @ingredients.each do |ingredient| %>
+      <option value="<%= ingredient.id%>"> <%= ingredient.name %> </option>
+    <% end %>
+  </select>
+
+  <button type="submit">Search recipes</button>
+</form>
+
+
+<a href="/tags">view all recipe tags</a>
